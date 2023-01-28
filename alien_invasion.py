@@ -73,6 +73,9 @@ class AlienInvasion:
                 self._check_play_button(mouse_pos)
 
 
+    #************************************************************************#
+    #                  _check_keydown_events(self, event)                    #
+    #************************************************************************#
     def _check_keydown_events(self, event):
         if event.key == pygame.K_RIGHT:
             self.ship.moving_right = True
@@ -112,6 +115,7 @@ class AlienInvasion:
         if not self.aliens:
             self.bullets.empty()
             self._create_fleet()
+            self.settings.increase_speed()
 
 
     def _update_screen(self):
@@ -216,6 +220,8 @@ class AlienInvasion:
 
         button_clicked = self.play_button.rect.collidepoint(mouse_pos)
         if button_clicked and not self.stats.game_active:
+            self.settings.initialize_dynamic_settings()
+            
             self.stats.reset_stats()
             self.stats.game_active = True
 
