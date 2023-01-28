@@ -37,6 +37,8 @@ class Settings:
 
         self.fleet_direction = 1
 
+        self.alien_points = 50
+
 
     #************************************************************************#
     #                      increase_speed(self)                              #
