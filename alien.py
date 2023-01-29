@@ -3,6 +3,9 @@ from pygame.sprite import Sprite
 
 class Alien(Sprite):
 
+    #************************************************************************#
+    #                     __init__(self, ai_game)                            #
+    #************************************************************************#
     def __init__(self, ai_game):
 
         super().__init__()
@@ -18,6 +21,9 @@ class Alien(Sprite):
         self.x = float(self.rect.x)
 
 
+    #************************************************************************#
+    #                     check_edges(self)                                  #
+    #************************************************************************#
     def check_edges(self):
 
         screen_rect = self.screen.get_rect()
@@ -25,6 +31,9 @@ class Alien(Sprite):
             return True
 
 
+    #************************************************************************#
+    #                     update(self)                                       #
+    #************************************************************************#
     def update(self):
 
         self.x     += (self.settings.alien_speed * self.settings.fleet_direction)

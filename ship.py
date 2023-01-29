@@ -1,9 +1,15 @@
 import pygame
+from pygame.sprite import Sprite
 
-class Ship:
+class Ship(Sprite):
     """A class to manage the ship"""
 
+    #************************************************************************#
+    #                     __init__(self, ai_game)                            #
+    #************************************************************************#
     def __init__(self, ai_game):
+
+        super().__init__()
 
         self.screen      = ai_game.screen
         self.settings    = ai_game.settings
@@ -20,6 +26,9 @@ class Ship:
         self.moving_left  = False
 
 
+    #************************************************************************#
+    #                     update(self)                                       #
+    #************************************************************************#
     def update(self):
         if self.moving_right and self.rect.right < self.screen_rect.right:
             self.x += self.settings.ship_speed
@@ -28,11 +37,17 @@ class Ship:
         self.rect.x = self.x
 
 
+    #************************************************************************#
+    #                     blitme(self)                                       #
+    #************************************************************************#
     def blitme(self):
         """Draw the ship."""
         self.screen.blit(self.image, self.rect)
 
 
+    #************************************************************************#
+    #                     center_ship(self)                                  #
+    #************************************************************************#
     def center_ship(self):
 
         self.rect.midbottom = self.screen_rect.midbottom
